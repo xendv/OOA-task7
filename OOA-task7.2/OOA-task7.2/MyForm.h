@@ -165,18 +165,12 @@ namespace OOAtask7 {
 		int const max = 10;
 		int i, k = 1;
 
-	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
-	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-	}
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 		srand(time(NULL));
 		i = rand() % max;
 		label2->Text = "";	//очистка служебных меток
 		label3->Text = "";
 		label4->Text = "Доступно попыток : " + max;
-	}
-	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void textBox1_Keypress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
 		int n; //вводимое игроком число
@@ -196,7 +190,10 @@ namespace OOAtask7 {
 				textBox1->ReadOnly = true;
 				button1->Enabled = true;
 				button1->Focus();
-				if (i == n) label4->Text = "Правильно!";
+				if (i == n) {
+					label4->Text = "Правильно!";
+					label4->ForeColor = Color::Green;
+				}
 				else
 					if (k == max) {
 					label4->Text = "Вы проиграли! Превышено к-во попыток (" + max + ")";
@@ -218,7 +215,13 @@ namespace OOAtask7 {
 		textBox1->ReadOnly = false;
 		button1->Enabled = false;
 	}
+	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
 	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 	};
 }
