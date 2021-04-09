@@ -60,6 +60,12 @@ namespace OOAtask73 {
 	private: System::Windows::Forms::RadioButton^ radioButton1;
 	private: System::Windows::Forms::CheckBox^ maxcheckBox;
 	private: System::Windows::Forms::CheckBox^ numPositcheckBox;
+	private: System::Windows::Forms::MenuStrip^ menuStrip1;
+	private: System::Windows::Forms::ToolStripMenuItem^ exitToolStripMenuItem;
+
+
+
+	private: System::ComponentModel::IContainer^ components;
 
 
 
@@ -70,7 +76,7 @@ namespace OOAtask73 {
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container^ components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -91,13 +97,16 @@ namespace OOAtask73 {
 			this->radioButton1 = (gcnew System::Windows::Forms::RadioButton());
 			this->maxcheckBox = (gcnew System::Windows::Forms::CheckBox());
 			this->numPositcheckBox = (gcnew System::Windows::Forms::CheckBox());
+			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
+			this->exitToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->groupBox1->SuspendLayout();
+			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(9, 19);
+			this->label1->Location = System::Drawing::Point(8, 24);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(127, 13);
 			this->label1->TabIndex = 0;
@@ -106,21 +115,21 @@ namespace OOAtask73 {
 			// 
 			// numtextBox
 			// 
-			this->numtextBox->Location = System::Drawing::Point(12, 35);
+			this->numtextBox->Location = System::Drawing::Point(11, 44);
 			this->numtextBox->Name = L"numtextBox";
 			this->numtextBox->Size = System::Drawing::Size(41, 20);
 			this->numtextBox->TabIndex = 1;
 			// 
 			// arraytextBox
 			// 
-			this->arraytextBox->Location = System::Drawing::Point(12, 70);
+			this->arraytextBox->Location = System::Drawing::Point(11, 79);
 			this->arraytextBox->Name = L"arraytextBox";
 			this->arraytextBox->Size = System::Drawing::Size(374, 20);
 			this->arraytextBox->TabIndex = 3;
 			// 
 			// createbutton
 			// 
-			this->createbutton->Location = System::Drawing::Point(253, 99);
+			this->createbutton->Location = System::Drawing::Point(253, 105);
 			this->createbutton->Name = L"createbutton";
 			this->createbutton->Size = System::Drawing::Size(133, 23);
 			this->createbutton->TabIndex = 4;
@@ -130,7 +139,7 @@ namespace OOAtask73 {
 			// 
 			// calcbutton
 			// 
-			this->calcbutton->Location = System::Drawing::Point(253, 131);
+			this->calcbutton->Location = System::Drawing::Point(253, 141);
 			this->calcbutton->Name = L"calcbutton";
 			this->calcbutton->Size = System::Drawing::Size(133, 23);
 			this->calcbutton->TabIndex = 5;
@@ -140,7 +149,7 @@ namespace OOAtask73 {
 			// 
 			// maxtextBox
 			// 
-			this->maxtextBox->Location = System::Drawing::Point(192, 102);
+			this->maxtextBox->Location = System::Drawing::Point(192, 107);
 			this->maxtextBox->Name = L"maxtextBox";
 			this->maxtextBox->ReadOnly = true;
 			this->maxtextBox->Size = System::Drawing::Size(38, 20);
@@ -148,7 +157,7 @@ namespace OOAtask73 {
 			// 
 			// numPosittextBox
 			// 
-			this->numPosittextBox->Location = System::Drawing::Point(192, 131);
+			this->numPosittextBox->Location = System::Drawing::Point(192, 143);
 			this->numPosittextBox->Name = L"numPosittextBox";
 			this->numPosittextBox->ReadOnly = true;
 			this->numPosittextBox->Size = System::Drawing::Size(38, 20);
@@ -158,7 +167,7 @@ namespace OOAtask73 {
 			// 
 			this->groupBox1->Controls->Add(this->radioButton2);
 			this->groupBox1->Controls->Add(this->radioButton1);
-			this->groupBox1->Location = System::Drawing::Point(171, 18);
+			this->groupBox1->Location = System::Drawing::Point(171, 24);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(215, 46);
 			this->groupBox1->TabIndex = 9;
@@ -191,7 +200,7 @@ namespace OOAtask73 {
 			// maxcheckBox
 			// 
 			this->maxcheckBox->AutoSize = true;
-			this->maxcheckBox->Location = System::Drawing::Point(12, 105);
+			this->maxcheckBox->Location = System::Drawing::Point(11, 110);
 			this->maxcheckBox->Name = L"maxcheckBox";
 			this->maxcheckBox->Size = System::Drawing::Size(83, 17);
 			this->maxcheckBox->TabIndex = 10;
@@ -201,18 +210,35 @@ namespace OOAtask73 {
 			// numPositcheckBox
 			// 
 			this->numPositcheckBox->AutoSize = true;
-			this->numPositcheckBox->Location = System::Drawing::Point(12, 135);
+			this->numPositcheckBox->Location = System::Drawing::Point(11, 145);
 			this->numPositcheckBox->Name = L"numPositcheckBox";
 			this->numPositcheckBox->Size = System::Drawing::Size(171, 17);
 			this->numPositcheckBox->TabIndex = 11;
 			this->numPositcheckBox->Text = L"Количество положительных:";
 			this->numPositcheckBox->UseVisualStyleBackColor = true;
 			// 
+			// menuStrip1
+			// 
+			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->exitToolStripMenuItem });
+			this->menuStrip1->Location = System::Drawing::Point(0, 0);
+			this->menuStrip1->Name = L"menuStrip1";
+			this->menuStrip1->Size = System::Drawing::Size(397, 24);
+			this->menuStrip1->TabIndex = 12;
+			this->menuStrip1->Text = L"menuStrip1";
+			// 
+			// exitToolStripMenuItem
+			// 
+			this->exitToolStripMenuItem->Alignment = System::Windows::Forms::ToolStripItemAlignment::Right;
+			this->exitToolStripMenuItem->Name = L"exitToolStripMenuItem";
+			this->exitToolStripMenuItem->Size = System::Drawing::Size(54, 20);
+			this->exitToolStripMenuItem->Text = L"Выход";
+			this->exitToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::exitToolStripMenuItem_Click);
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(397, 166);
+			this->ClientSize = System::Drawing::Size(397, 176);
 			this->Controls->Add(this->numPositcheckBox);
 			this->Controls->Add(this->maxcheckBox);
 			this->Controls->Add(this->groupBox1);
@@ -223,11 +249,14 @@ namespace OOAtask73 {
 			this->Controls->Add(this->arraytextBox);
 			this->Controls->Add(this->numtextBox);
 			this->Controls->Add(this->label1);
+			this->Controls->Add(this->menuStrip1);
 			this->Name = L"MyForm";
 			this->Text = L"Массив";
 			this->Load += gcnew System::EventHandler(this, &MyForm::form_Load);
 			this->groupBox1->ResumeLayout(false);
 			this->groupBox1->PerformLayout();
+			this->menuStrip1->ResumeLayout(false);
+			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -349,5 +378,8 @@ namespace OOAtask73 {
 		if (numPositcheckBox->Checked) numPosittextBox->Text = numPosit.ToString();
 		else numPosittextBox->Clear();
 	}
-	};
+	private: System::Void exitToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		Application::Exit();
+	}
+};
 }
