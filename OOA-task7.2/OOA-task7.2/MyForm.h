@@ -41,13 +41,16 @@ namespace OOAtask7 {
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Label^ label4;
+
+
 	protected:
 
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -61,6 +64,7 @@ namespace OOAtask7 {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// button1
@@ -101,11 +105,12 @@ namespace OOAtask7 {
 			// 
 			this->label2->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(62, 100);
+			this->label2->Location = System::Drawing::Point(62, 110);
 			this->label2->MinimumSize = System::Drawing::Size(200, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(200, 13);
 			this->label2->TabIndex = 3;
+			this->label2->Text = L"label2";
 			this->label2->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
 			// 
@@ -113,19 +118,37 @@ namespace OOAtask7 {
 			// 
 			this->label3->Anchor = System::Windows::Forms::AnchorStyles::None;
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(62, 130);
+			this->label3->Location = System::Drawing::Point(62, 134);
 			this->label3->MinimumSize = System::Drawing::Size(200, 0);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(200, 13);
 			this->label3->TabIndex = 4;
+			this->label3->Text = L"label3";
 			this->label3->TextAlign = System::Drawing::ContentAlignment::TopCenter;
 			this->label3->Click += gcnew System::EventHandler(this, &MyForm::label3_Click);
+			// 
+			// label4
+			// 
+			this->label4->Anchor = System::Windows::Forms::AnchorStyles::None;
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 8.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(204)));
+			this->label4->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label4->Location = System::Drawing::Point(12, 83);
+			this->label4->MinimumSize = System::Drawing::Size(300, 0);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(300, 13);
+			this->label4->TabIndex = 5;
+			this->label4->Text = L"Доступно попыток:";
+			this->label4->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			this->label4->Click += gcnew System::EventHandler(this, &MyForm::label4_Click);
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(324, 211);
+			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
@@ -141,55 +164,61 @@ namespace OOAtask7 {
 #pragma endregion
 		int const max = 10;
 		int i, k = 1;
-		private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
-		}
-		private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
-		}
-		private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
-			srand(time(NULL));
-			i = rand() % max;
-		}
-		private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
-		}
-		private: System::Void textBox1_Keypress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-			int n; //вводимое игроком число
-			int attempt = 1;
-			if ((int)e->KeyChar == 13) { //если был нажат Enter
-				if (attempt <= max) {
-					n = Convert::ToInt16(textBox1->Text); //число из текстового поля (с преобразованием)
-					if (n - i != 0) {
-						//label2->Left += 5;
-						label2->Text = "Не угадали!";
-						//textBox1->Text="";
-						textBox1->Clear();
-						k++;	//+1 в счетчик попыток
-					}
-					else {
-						label2->Left = 60; //восстанавливаем положение метки
-						label2->Text = "Козффициент невезучести :";
-						double koef = 1.0 * k / max;
-						label3->Text = koef.ToString();
-						textBox1->ReadOnly = true;
-						button1->Enabled = true;
-						button1->Focus();
-					}
-					attempt++;
-				}
-				else {
 
-				}
-	
+	private: System::Void label2_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		srand(time(NULL));
+		i = rand() % max;
+		label2->Text = "";	//очистка служебных меток
+		label3->Text = "";
+		label4->Text = "Доступно попыток : " + max;
+	}
+	private: System::Void label3_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+	private: System::Void textBox1_Keypress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+		int n; //вводимое игроком число
+		if ((int)e->KeyChar == 13) { //если был нажат Enter
+			n = Convert::ToInt16(textBox1->Text); //число из текстового поля (с преобразованием)
+			if (n - i != 0 && (k < max)) {
+				label2->Text = "Не угадали!";
+				textBox1->Clear();
+				k++;	//+1 в счетчик попыток
+				label4->Text = "Доступно попыток : " + (max - k + 1).ToString();
+			}
+			else {
+				label2->Left = 60; //восстанавливаем положение метки
+				label2->Text = "Коэффициент невезучести :";
+				double koef = 1.0 * k / max;
+				label3->Text = koef.ToString();
+				textBox1->ReadOnly = true;
+				button1->Enabled = true;
+				button1->Focus();
+				if (i == n) label4->Text = "Правильно!";
+				else
+					if (k == max) {
+					label4->Text = "Вы проиграли! Превышено к-во попыток (" + max + ")";
+					label4->ForeColor=Color::Red;
+					}
+
 			}
 		}
-		private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-			i = rand() % max; //"загадывание" числа
-			k = 1;
-			textBox1-> Clear(); //очистка поля ввода 
-			textBox1->Focus(); //установка фокуса ввода
-			label2->Text = "";	//очистка служебных меток
-			label3->Text = "";
-			textBox1->ReadOnly = false; 
-			button1->Visible = false;
-		}
+	}
+	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
+		i = rand() % max; //"загадывание" числа
+		k = 1;
+		textBox1->Clear(); //очистка поля ввода 
+		textBox1->Focus(); //установка фокуса ввода
+		label2->Text = "";	//очистка служебных меток
+		label3->Text = "";
+		label4->Text = "Доступно попыток : " + max;
+		label4->ForeColor = SystemColors::ControlText;
+		textBox1->ReadOnly = false;
+		button1->Enabled = false;
+	}
+	private: System::Void label4_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
 	};
 }
