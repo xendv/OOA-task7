@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OOAtask7", "OOA-task7\OOA-t
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OOAtask7.2", "OOA-task7.2\OOA-task7.2\OOA-task7.2.vcxproj", "{CC64655D-69A3-4C27-91B3-60873ABAE241}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "OOAtask7.3", "OOAtask7.3\OOAtask7.3.vcxproj", "{3D0AC2B5-4796-4C63-8639-C297941C2590}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{CC64655D-69A3-4C27-91B3-60873ABAE241}.Release|x64.Build.0 = Release|x64
 		{CC64655D-69A3-4C27-91B3-60873ABAE241}.Release|x86.ActiveCfg = Release|Win32
 		{CC64655D-69A3-4C27-91B3-60873ABAE241}.Release|x86.Build.0 = Release|Win32
+		{3D0AC2B5-4796-4C63-8639-C297941C2590}.Debug|x64.ActiveCfg = Debug|x64
+		{3D0AC2B5-4796-4C63-8639-C297941C2590}.Debug|x64.Build.0 = Debug|x64
+		{3D0AC2B5-4796-4C63-8639-C297941C2590}.Debug|x86.ActiveCfg = Debug|Win32
+		{3D0AC2B5-4796-4C63-8639-C297941C2590}.Debug|x86.Build.0 = Debug|Win32
+		{3D0AC2B5-4796-4C63-8639-C297941C2590}.Release|x64.ActiveCfg = Release|x64
+		{3D0AC2B5-4796-4C63-8639-C297941C2590}.Release|x64.Build.0 = Release|x64
+		{3D0AC2B5-4796-4C63-8639-C297941C2590}.Release|x86.ActiveCfg = Release|Win32
+		{3D0AC2B5-4796-4C63-8639-C297941C2590}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
