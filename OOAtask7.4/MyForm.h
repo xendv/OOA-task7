@@ -51,13 +51,14 @@ namespace OOAtask74 {
 	private: System::Windows::Forms::ToolStripButton^ toolStripButton2;
 	private: System::Windows::Forms::ToolStripButton^ toolStripButton3;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::OpenFileDialog^ openFileDialog1;
 	protected:
 
 	private:
 		/// <summary>
 		/// Обязательная переменная конструктора.
 		/// </summary>
-		System::ComponentModel::Container ^components;
+		System::ComponentModel::Container^ components;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -79,6 +80,7 @@ namespace OOAtask74 {
 			this->toolStripButton2 = (gcnew System::Windows::Forms::ToolStripButton());
 			this->toolStripButton3 = (gcnew System::Windows::Forms::ToolStripButton());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->openFileDialog1 = (gcnew System::Windows::Forms::OpenFileDialog());
 			this->menuStrip->SuspendLayout();
 			this->toolStrip->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
@@ -131,14 +133,16 @@ namespace OOAtask74 {
 			// вФорматеJPGToolStripMenuItem
 			// 
 			this->вФорматеJPGToolStripMenuItem->Name = L"вФорматеJPGToolStripMenuItem";
-			this->вФорматеJPGToolStripMenuItem->Size = System::Drawing::Size(160, 22);
+			this->вФорматеJPGToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->вФорматеJPGToolStripMenuItem->Text = L"В формате JPG";
+			this->вФорматеJPGToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::вФорматеJPGToolStripMenuItem_Click);
 			// 
 			// вФорматеPNGToolStripMenuItem
 			// 
 			this->вФорматеPNGToolStripMenuItem->Name = L"вФорматеPNGToolStripMenuItem";
-			this->вФорматеPNGToolStripMenuItem->Size = System::Drawing::Size(160, 22);
+			this->вФорматеPNGToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->вФорматеPNGToolStripMenuItem->Text = L"В формате PNG";
+			this->вФорматеPNGToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::вФорматеPNGToolStripMenuItem_Click);
 			// 
 			// toolStrip
 			// 
@@ -175,6 +179,7 @@ namespace OOAtask74 {
 			this->toolStripButton2->Name = L"toolStripButton2";
 			this->toolStripButton2->Size = System::Drawing::Size(42, 42);
 			this->toolStripButton2->Text = L"toolStripButton2";
+			this->toolStripButton2->Click += gcnew System::EventHandler(this, &MyForm::toolStripButton2_Click);
 			// 
 			// toolStripButton3
 			// 
@@ -186,6 +191,7 @@ namespace OOAtask74 {
 			this->toolStripButton3->Name = L"toolStripButton3";
 			this->toolStripButton3->Size = System::Drawing::Size(42, 42);
 			this->toolStripButton3->Text = L"toolStripButton3";
+			this->toolStripButton3->Click += gcnew System::EventHandler(this, &MyForm::toolStripButton3_Click);
 			// 
 			// pictureBox1
 			// 
@@ -196,6 +202,10 @@ namespace OOAtask74 {
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pictureBox1->TabIndex = 2;
 			this->pictureBox1->TabStop = false;
+			// 
+			// openFileDialog1
+			// 
+			this->openFileDialog1->FileName = L"openFileDialog1";
 			// 
 			// MyForm
 			// 
@@ -219,15 +229,48 @@ namespace OOAtask74 {
 		}
 #pragma endregion
 
-private: System::Void выходToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (MessageBox::Show("Вы действительно хотите выйти? ", "Внимание!",
-		MessageBoxButtons::YesNo, MessageBoxIcon::Question) ==
-		System::Windows::Forms::DialogResult::Yes)
-		Application::Exit();
-}
-	   private: System::Void загрузитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void выходToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (MessageBox::Show("Вы действительно хотите выйти? ", "Внимание!",
+			MessageBoxButtons::YesNo, MessageBoxIcon::Question) ==
+			System::Windows::Forms::DialogResult::Yes)
+			Application::Exit();
+	}
+	private: System::Void загрузитьToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	   }
-
-};
+	}
+	private: System::Void вФорматеJPGToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		LoadImage(true);
+	}
+	private: System::Void вФорматеPNGToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e) {
+		LoadImage(false);
+	}
+	private: System::Void toolStripButton2_Click(System::Object^ sender, System::EventArgs^ e) {
+		LoadImage(true);
+	}
+	private: System::Void toolStripButton3_Click(System::Object^ sender, System::EventArgs^ e) {
+		LoadImage(false);
+	}
+	Image^ MemForImage; //переменная для загружаемого изображения 
+	private: void LoadImage(bool jpg) { //процедура загрузки изображения 
+	//установка начальной папки: 
+		openFileDialog1->InitialDirectory = "c:\\";
+		if (jpg) //если выбор jpeg-файла:
+				 //установка формата jpg:
+			openFileDialog1->Filter = "image(JPEG) files (*.jpg)|*.jpg|All files(*.*)|*.*";
+		else
+			//установка формата png:
+			openFileDialog1->Filter = "image(PNG) files(*.png)|*.png|All files(*.*)|*.*";
+		//если файл в окне выбран:
+		if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK)
+			try { //безопасная попытка загрузки
+			MemForImage = Image::FromFile(openFileDialog1->FileName);
+			//установка изображения в элемент формы 
+		PictureBox: pictureBox1->Image = MemForImage;
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show("He удалось загрузить файл: " + ex->Message, "Ошибка",
+				MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
+		}
+	}
+	};
 }
