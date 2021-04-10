@@ -1,4 +1,4 @@
-#include "MyForm.h"
+#include "ImageLoader.h"
 //необходимые адресные пространства:
 using namespace System;
 using namespace System::Windows::Forms;
@@ -12,6 +12,6 @@ int main(array<String^>^ args) //передача в главную функцю
 //элементы управления используют класс GDI, основанный на TextRenderer: 
 	Application::SetCompatibleTextRenderingDefault(false);
 	//запуск приложения с заданной формой в качестве главного окна:
-	OOAtask74::MyForm form; Application::Run(% form);
+	OOAtask74::ImageLoader form; Application::Run(% form);
 	return 0; //нормальное завершение приложения
 }

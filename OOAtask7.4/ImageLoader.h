@@ -1,4 +1,5 @@
 #pragma once
+#include "Preview.h"
 
 namespace OOAtask74 {
 
@@ -10,12 +11,12 @@ namespace OOAtask74 {
 	using namespace System::Drawing;
 
 	/// <summary>
-	/// Ñâîäêà äëÿ MyForm
+	/// Ñâîäêà äëÿ ImageLoader
 	/// </summary>
-	public ref class MyForm : public System::Windows::Forms::Form
+	public ref class ImageLoader : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm(void)
+		ImageLoader(void)
 		{
 			InitializeComponent();
 			//
@@ -27,7 +28,7 @@ namespace OOAtask74 {
 		/// <summary>
 		/// Îñâîáîäèòü âñå èñïîëüçóåìûå ğåñóğñû.
 		/// </summary>
-		~MyForm()
+		~ImageLoader()
 		{
 			if (components)
 			{
@@ -67,7 +68,7 @@ namespace OOAtask74 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(ImageLoader::typeid));
 			this->menuStrip = (gcnew System::Windows::Forms::MenuStrip());
 			this->ôàéëToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->âûõîäToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -110,7 +111,7 @@ namespace OOAtask74 {
 			this->âûõîäToolStripMenuItem->Name = L"âûõîäToolStripMenuItem";
 			this->âûõîäToolStripMenuItem->Size = System::Drawing::Size(109, 22);
 			this->âûõîäToolStripMenuItem->Text = L"Âûõîä";
-			this->âûõîäToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::âûõîäToolStripMenuItem_Click);
+			this->âûõîäToolStripMenuItem->Click += gcnew System::EventHandler(this, &ImageLoader::âûõîäToolStripMenuItem_Click);
 			// 
 			// çàãğóçèòüToolStripMenuItem
 			// 
@@ -118,7 +119,7 @@ namespace OOAtask74 {
 			this->çàãğóçèòüToolStripMenuItem->Name = L"çàãğóçèòüToolStripMenuItem";
 			this->çàãğóçèòüToolStripMenuItem->Size = System::Drawing::Size(73, 20);
 			this->çàãğóçèòüToolStripMenuItem->Text = L"Çàãğóçèòü";
-			this->çàãğóçèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::çàãğóçèòüToolStripMenuItem_Click);
+			this->çàãğóçèòüToolStripMenuItem->Click += gcnew System::EventHandler(this, &ImageLoader::çàãğóçèòüToolStripMenuItem_Click);
 			// 
 			// çàãğóçèòüÈçîáğàæåíèåToolStripMenuItem
 			// 
@@ -133,16 +134,16 @@ namespace OOAtask74 {
 			// âÔîğìàòåJPGToolStripMenuItem
 			// 
 			this->âÔîğìàòåJPGToolStripMenuItem->Name = L"âÔîğìàòåJPGToolStripMenuItem";
-			this->âÔîğìàòåJPGToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->âÔîğìàòåJPGToolStripMenuItem->Size = System::Drawing::Size(160, 22);
 			this->âÔîğìàòåJPGToolStripMenuItem->Text = L"Â ôîğìàòå JPG";
-			this->âÔîğìàòåJPGToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::âÔîğìàòåJPGToolStripMenuItem_Click);
+			this->âÔîğìàòåJPGToolStripMenuItem->Click += gcnew System::EventHandler(this, &ImageLoader::âÔîğìàòåJPGToolStripMenuItem_Click);
 			// 
 			// âÔîğìàòåPNGToolStripMenuItem
 			// 
 			this->âÔîğìàòåPNGToolStripMenuItem->Name = L"âÔîğìàòåPNGToolStripMenuItem";
-			this->âÔîğìàòåPNGToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->âÔîğìàòåPNGToolStripMenuItem->Size = System::Drawing::Size(160, 22);
 			this->âÔîğìàòåPNGToolStripMenuItem->Text = L"Â ôîğìàòå PNG";
-			this->âÔîğìàòåPNGToolStripMenuItem->Click += gcnew System::EventHandler(this, &MyForm::âÔîğìàòåPNGToolStripMenuItem_Click);
+			this->âÔîğìàòåPNGToolStripMenuItem->Click += gcnew System::EventHandler(this, &ImageLoader::âÔîğìàòåPNGToolStripMenuItem_Click);
 			// 
 			// toolStrip
 			// 
@@ -167,7 +168,8 @@ namespace OOAtask74 {
 			this->toolStripButton1->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->toolStripButton1->Name = L"toolStripButton1";
 			this->toolStripButton1->Size = System::Drawing::Size(42, 42);
-			this->toolStripButton1->Text = L"toolStripButton1";
+			this->toolStripButton1->Text = L"Îòêğûòü â íîâîì îêíå";
+			this->toolStripButton1->Click += gcnew System::EventHandler(this, &ImageLoader::toolStripButton1_Click);
 			// 
 			// toolStripButton2
 			// 
@@ -178,8 +180,8 @@ namespace OOAtask74 {
 			this->toolStripButton2->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->toolStripButton2->Name = L"toolStripButton2";
 			this->toolStripButton2->Size = System::Drawing::Size(42, 42);
-			this->toolStripButton2->Text = L"toolStripButton2";
-			this->toolStripButton2->Click += gcnew System::EventHandler(this, &MyForm::toolStripButton2_Click);
+			this->toolStripButton2->Text = L"Çàãğóçèòü â ôîğìàòå JPG";
+			this->toolStripButton2->Click += gcnew System::EventHandler(this, &ImageLoader::toolStripButton2_Click);
 			// 
 			// toolStripButton3
 			// 
@@ -190,8 +192,8 @@ namespace OOAtask74 {
 			this->toolStripButton3->ImageTransparentColor = System::Drawing::Color::Magenta;
 			this->toolStripButton3->Name = L"toolStripButton3";
 			this->toolStripButton3->Size = System::Drawing::Size(42, 42);
-			this->toolStripButton3->Text = L"toolStripButton3";
-			this->toolStripButton3->Click += gcnew System::EventHandler(this, &MyForm::toolStripButton3_Click);
+			this->toolStripButton3->Text = L"Çàãğóçèòü â ôîğìàòå PNG";
+			this->toolStripButton3->Click += gcnew System::EventHandler(this, &ImageLoader::toolStripButton3_Click);
 			// 
 			// pictureBox1
 			// 
@@ -206,8 +208,9 @@ namespace OOAtask74 {
 			// openFileDialog1
 			// 
 			this->openFileDialog1->FileName = L"openFileDialog1";
+			this->openFileDialog1->RestoreDirectory = true;
 			// 
-			// MyForm
+			// ImageLoader
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
@@ -216,8 +219,8 @@ namespace OOAtask74 {
 			this->Controls->Add(this->toolStrip);
 			this->Controls->Add(this->menuStrip);
 			this->MainMenuStrip = this->menuStrip;
-			this->Name = L"MyForm";
-			this->Text = L"MyForm";
+			this->Name = L"ImageLoader";
+			this->Text = L"ImageLoader";
 			this->menuStrip->ResumeLayout(false);
 			this->menuStrip->PerformLayout();
 			this->toolStrip->ResumeLayout(false);
@@ -250,10 +253,13 @@ namespace OOAtask74 {
 	private: System::Void toolStripButton3_Click(System::Object^ sender, System::EventArgs^ e) {
 		LoadImage(false);
 	}
-	Image^ MemForImage; //ïåğåìåííàÿ äëÿ çàãğóæàåìîãî èçîáğàæåíèÿ 
+		   Image^ MemForImage; //ïåğåìåííàÿ äëÿ çàãğóæàåìîãî èçîáğàæåíèÿ 
 	private: void LoadImage(bool jpg) { //ïğîöåäóğà çàãğóçêè èçîáğàæåíèÿ 
-	//óñòàíîâêà íà÷àëüíîé ïàïêè: 
-		openFileDialog1->InitialDirectory = "c:\\";
+		//óñòàíîâêà íà÷àëüíîé ïàïêè: 
+		//openFileDialog1->InitialDirectory = "c:\\";
+		// 
+		//openFileDialog1->RestoreDirectory = true;
+
 		if (jpg) //åñëè âûáîğ jpeg-ôàéëà:
 				 //óñòàíîâêà ôîğìàòà jpg:
 			openFileDialog1->Filter = "image(JPEG) files (*.jpg)|*.jpg|All files(*.*)|*.*";
@@ -272,5 +278,12 @@ namespace OOAtask74 {
 				MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
 		}
 	}
+	private: System::Void toolStripButton1_Click(System::Object^ sender, System::EventArgs^ e) {
+		//ñîçäàåì âñïîìîãàòåëüíóş ôîğìó
+		Preview^ PreviewF = gcnew Preview(MemForImage);
+		//âûçûâàåì ôîğìó â ìîäàëüíîì ğåæèìå
+		PreviewF->ShowDialog();
+	}
 	};
+
 }
