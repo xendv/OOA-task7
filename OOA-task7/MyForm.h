@@ -111,7 +111,7 @@ namespace OOAtask7 {
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void textBox1_Press(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
-		MessageBox::Show("Нажата клавиша: " + static_cast<int>(e->KeyChar).ToString(), "Клавиша", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
+		MessageBox::Show("Нажата клавиша: " + e->KeyChar + "\nASCII-код: " + static_cast<int>(e->KeyChar).ToString(), "Клавиша", MessageBoxButtons::OK, MessageBoxIcon::Asterisk);
 	}
 	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
